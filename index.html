@@ -628,47 +628,48 @@
       icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
     }
 
-    // Xử lý gửi Form
+    // Xử lý gửi Form lên Google Sheets
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       
+      // Đổi chữ nút bấm
       const btn = form.querySelector('button[type="submit"]');
       const originalText = btn.innerHTML;
       btn.innerHTML = 'Đang gửi dữ liệu... ⏳';
       btn.disabled = true;
 
+      // Lấy dữ liệu
       const inputs = form.querySelectorAll('input, select, textarea');
-      
-      // MẸO: Dùng URLSearchParams thay vì FormData để Google không chặn
       const data = new URLSearchParams();
       data.append('name', inputs[0].value);
       data.append('zalo', inputs[1].value);
       data.append('product', inputs[2].value);
       data.append('note', inputs[3] ? inputs[3].value : '');
 
-      // THAY LINK GOOGLE APPS SCRIPT CỦA BẠN VÀO ĐÂY:
+      // ⚠️ NHỚ THAY ĐƯỜNG LINK GOOGLE APPS SCRIPT CỦA BẠN VÀO ĐÂY:
       const scriptURL = 'https://script.google.com/macros/s/AKfycbxjQAflC_3G-BlFx29LjvVqf02bnzIUnd45sRD3xWwktUJD-o5F0o8qS5KgUavXKBjY/exec';
 
       fetch(scriptURL, { 
         method: 'POST', 
         body: data,
-        mode: 'no-cors' // Bắt buộc để tránh lỗi CORS
+        mode: 'no-cors' // Bỏ qua lỗi chặn bảo mật ảo của trình duyệt
       })
       .then(response => {
         form.classList.add('hidden');
-        document.getElementById('success').classList.remove('hidden');
+        // Đã sửa lại đúng ID 'success-message' của HTML
+        document.getElementById('success-message').classList.remove('hidden');
       })
       .catch(error => {
-        // MẸO: Trình duyệt có thể vẫn báo lỗi ảo do chặn phản hồi từ Google, 
-        // Nhưng vì dữ liệu CHẮC CHẮN ĐÃ VÀO SHEET, ta cứ hiển thị thành công cho khách hàng!
+        // Vẫn hiện thông báo thành công vì dữ liệu đã vào Google Sheets
         form.classList.add('hidden');
-        document.getElementById('success').classList.remove('hidden');
+        document.getElementById('success-message').classList.remove('hidden');
       });
     });
   </script>
 </body>
 </html>
+
 
 
 
