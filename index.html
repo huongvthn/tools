@@ -351,7 +351,7 @@
             <tr class="border-b border-white/10">
               <td class="p-4 font-medium">⏱️ Kích hoạt</td>
               <td class="p-4 text-center text-red-300">Tự xử lý phức tạp</td>
-              <td class="p-4 text-center text-accent font-bold bg-primary/10">5-15 phút có ngay</td>
+              <td class="p-4 text-center text-accent font-bold bg-primary/10">15-30 phút có ngay</td>
             </tr>
             <tr>
               <td class="p-4 font-medium">🎁 Quà tặng</td>
@@ -648,7 +648,7 @@
       formData.append('note', inputs[3] ? inputs[3].value : '');
 
       // THAY ĐƯỜNG LINK BẠN VỪA COPY Ở BƯỚC 2 VÀO ĐÂY NHÉ:
-      const scriptURL = 'https://script.google.com/macros/s/xxxxxx/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxjQAflC_3G-BlFx29LjvVqf02bnzIUnd45sRD3xWwktUJD-o5F0o8qS5KgUavXKBjY/exec';
 
       fetch(scriptURL, { method: 'POST', body: formData })
         .then(response => {
@@ -664,6 +664,7 @@
   </script>
 </body>
 </html>
+
 
 
 
