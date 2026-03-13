@@ -650,7 +650,7 @@
       // THAY ĐƯỜNG LINK BẠN VỪA COPY Ở BƯỚC 2 VÀO ĐÂY NHÉ:
       const scriptURL = 'https://script.google.com/macros/s/AKfycbxjQAflC_3G-BlFx29LjvVqf02bnzIUnd45sRD3xWwktUJD-o5F0o8qS5KgUavXKBjY/exec';
 
-      fetch(scriptURL, { method: 'POST', body: formData })
+      fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
         .then(response => {
           form.classList.add('hidden');
           document.getElementById('success').classList.remove('hidden');
@@ -664,6 +664,7 @@
   </script>
 </body>
 </html>
+
 
 
 
