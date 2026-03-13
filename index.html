@@ -628,15 +628,43 @@
       icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
     }
 
-    // Xử lý gửi Form
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
+    // Xử lý gửi Form lên Google Sheets
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      this.classList.add('hidden');
-      document.getElementById('success-message').classList.remove('hidden');
+      
+      // Đổi chữ nút bấm để khách hàng biết đang xử lý
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = 'Đang gửi dữ liệu... ⏳';
+      btn.disabled = true;
+
+      // Lấy dữ liệu từ các ô nhập
+      const inputs = form.querySelectorAll('input, select, textarea');
+      const formData = new FormData();
+      formData.append('name', inputs[0].value);
+      formData.append('zalo', inputs[1].value);
+      formData.append('product', inputs[2].value);
+      formData.append('note', inputs[3] ? inputs[3].value : '');
+
+      // THAY ĐƯỜNG LINK BẠN VỪA COPY Ở BƯỚC 2 VÀO ĐÂY NHÉ:
+      const scriptURL = 'https://script.google.com/macros/s/xxxxxx/exec';
+
+      fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => {
+          form.classList.add('hidden');
+          document.getElementById('success').classList.remove('hidden');
+        })
+        .catch(error => {
+          alert('Có lỗi xảy ra, vui lòng thử lại!');
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        });
     });
   </script>
 </body>
 </html>
+
 
 
 
