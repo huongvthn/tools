@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tool Pro Cho Người Dẫn Đầu - Nora Hương</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { 'vietnam': ['"Be Vietnam Pro"', 'sans-serif'] },
+          colors: { 
+            primary: '#FF6B35', 
+            secondary: '#1E3A5F', 
+            accent: '#00D4AA', 
+            surface: '#F8FAFC', 
+            dark: '#0F172A' 
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-hero { background: linear-gradient(135deg, #1E3A5F 0%, #0F172A 50%, #1E3A5F 100%); }
+    .gradient-text { background: linear-gradient(135deg, #FF6B35, #FF8F6B, #FFB347); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .card-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .card-hover:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 25px 50px -12px rgba(255, 107, 53, 0.25); }
+    .float-animation { animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(2deg); } }
+    .pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+    @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 53, 0.4); } 50% { box-shadow: 0 0 40px rgba(255, 107, 53, 0.8); } }
+    .icon-float { animation: iconFloat 3s ease-in-out infinite; }
+    @keyframes iconFloat { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-10px) scale(1.1); } }
+    .glass-effect { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+    .pain-card { border-left: 4px solid #FF6B35; }
+    .check-item::before { content: '✓'; color: #00D4AA; font-weight: bold; margin-right: 8px; }
+  </style>
+</head>
+
+<body class="h-full font-vietnam text-dark bg-white overflow-x-hidden">
+
+  <section class="gradient-hero min-h-screen relative overflow-hidden flex items-center">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full blur-xl float-animation"></div>
+      <div class="absolute top-40 right-20 w-32 h-32 bg-accent/20 rounded-full blur-xl float-animation" style="animation-delay: 1s;"></div>
+    </div>
+    <div class="container mx-auto px-4 py-12 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="flex-1 text-center lg:text-left text-white">
+          <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mb-6">
+            <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+            <span class="text-white/80 text-sm">Đối tác tin cậy của 500+ khách hàng</span>
+          </div>
+          <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-6">
+            Giải Phóng Năng Suất,<br><span class="gradient-text">Làm Chủ Công Nghệ AI</span><br>Cùng Nora Hương
+          </h1>
+          <p class="text-lg lg:text-xl text-white/80 mb-8 max-w-xl mx-auto lg:mx-0">
+            Cung cấp tài khoản Pro (CapCut, ChatGPT, Gemini, Zoom...) chính hãng, ổn định – Giúp bạn tập trung vào sáng tạo và chuyển hóa nội tâm.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="#form-section" class="bg-primary hover:bg-orange-600 px-8 py-4 rounded-xl text-white font-bold text-lg shadow-2xl pulse-glow flex items-center gap-2 justify-center">
+              <i data-lucide="gift"></i> Nhận Ưu Đãi Ngay
+            </a>
+            <a href="#products" class="glass-effect px-8 py-4 rounded-xl text-white font-semibold hover:bg-white/20 transition-all flex items-center gap-2 justify-center">
+              <i data-lucide="eye"></i> Xem Sản Phẩm
+            </a>
+          </div>
+        </div>
+        <div class="flex-1 relative">
+            <div class="w-64 h-64 lg:w-80 lg:h-80 mx-auto rounded-full bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center relative">
+                <div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white text-4xl font-bold shadow-2xl">NH</div>
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 icon-float bg-white p-3 rounded-2xl shadow-xl font-bold text-teal-600">CC</div>
+                <div class="absolute top-1/4 -right-8 icon-float bg-white p-3 rounded-2xl shadow-xl font-bold text-green-600" style="animation-delay: 0.5s">GPT</div>
+                <div class="absolute bottom-1/4 -left-8 icon-float bg-white p-3 rounded-2xl shadow-xl font-bold text-blue-600" style="animation-delay: 1s">Zoom</div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-surface">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-3xl font-bold text-center mb-12">Bạn có đang <span class="text-primary">mệt mỏi</span> vì bản miễn phí?</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="pain-card bg-white p-6 rounded-xl shadow-md">
+          <h3 class="font-bold mb-2">CapCut bản thường</h3>
+          <p class="text-gray-600 text-sm">Dính logo, thiếu hiệu ứng xịn, video kém chuyên nghiệp.</p>
+        </div>
+        <div class="pain-card bg-white p-6 rounded-xl shadow-md">
+          <h3 class="font-bold mb-2">ChatGPT miễn phí</h3>
+          <p class="text-gray-600 text-sm">Trả lời chậm, hay bị quá tải, tư duy không sâu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl lg:text-4xl font-bold">Hệ Sinh Thái <span class="gradient-text">Công Cụ Pro</span></h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="card-hover border p-6 rounded-2xl bg-white shadow-lg">
+          <div class="text-green-600 mb-4"><i data-lucide="sparkles" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-bold mb-2">ChatGPT Plus</h3>
+          <p class="text-gray-600 text-sm mb-4">Trợ lý AI thông minh nhất thế giới, hỗ trợ GPT-4o.</p>
+          <div class="font-bold text-2xl text-primary">149K <span class="text-sm text-gray-400">/tháng</span></div>
+        </div>
+        <div class="card-hover border p-6 rounded-2xl bg-white shadow-lg">
+          <div class="text-teal-600 mb-4"><i data-lucide="video" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-bold mb-2">CapCut Pro</h3>
+          <p class="text-gray-600 text-sm mb-4">Mở khóa toàn bộ hiệu ứng VIP, xuất video 4K.</p>
+          <div class="font-bold text-2xl text-primary">79K <span class="text-sm text-gray-400">/tháng</span></div>
+        </div>
+        <div class="card-hover border p-6 rounded-2xl bg-white shadow-lg border-2 border-primary">
+          <div class="text-orange-600 mb-4"><i data-lucide="package" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-bold mb-2">Combo Tiết Kiệm</h3>
+          <p class="text-gray-600 text-sm mb-4">Combo 3+ sản phẩm giảm ngay 20%.</p>
+          <div class="font-bold text-2xl text-primary">389K <span class="text-sm text-gray-400">/tháng</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-secondary text-white text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8">Tại sao nên chọn Nora Hương?</h2>
+      <div class="max-w-2xl mx-auto bg-white/10 p-6 rounded-2xl backdrop-blur-md">
+        <ul class="space-y-4 text-left">
+          <li class="check-item">Tiết kiệm 60-80% chi phí so với mua trực tiếp.</li>
+          <li class="check-item">Kích hoạt nhanh trong 5-15 phút.</li>
+          <li class="check-item">Hỗ trợ 1-1 suốt quá trình sử dụng.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-surface">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h2 class="text-3xl font-bold text-center mb-12">Câu hỏi thường gặp</h2>
+      <div class="space-y-4">
+        <div class="bg-white rounded-xl shadow p-4 cursor-pointer" onclick="toggleFaq(this)">
+          <div class="flex justify-between items-center font-bold">
+            Tài khoản có bảo hành không? <i data-lucide="chevron-down" class="transition-transform"></i>
+          </div>
+          <p class="hidden mt-4 text-gray-600">✅ Cam kết bảo hành suốt thời gian sử dụng. Lỗi 1 đổi 1 ngay lập tức.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="form-section" class="py-16 gradient-hero text-white text-center">
+    <div class="container mx-auto px-4 max-w-xl bg-white text-dark p-8 rounded-2xl shadow-2xl">
+      <h2 class="text-2xl font-bold mb-6">Đăng Ký Tư Vấn</h2>
+      <form id="contact-form" class="space-y-4 text-left">
+        <input type="text" placeholder="Họ tên" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none" required>
+        <input type="tel" placeholder="Zalo của bạn" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none" required>
+        <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg font-bold hover:bg-orange-600 transition-colors">GỬI NGAY & NHẬN QUÀ</button>
+      </form>
+      <div id="success" class="hidden mt-4 text-green-600 font-bold">🎉 Đã gửi thành công! Nora sẽ nhắn tin cho bạn ngay.</div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white/50 py-8 text-center text-sm">
+    <p>© 2024 Nora Hương. Made with ❤️ for Creators</p>
+  </footer>
+
+  <script>
+    // Khởi tạo Icon
+    lucide.createIcons();
+
+    // Hàm FAQ
+    function toggleFaq(el) {
+      const content = el.querySelector('p');
+      const icon = el.querySelector('i');
+      content.classList.toggle('hidden');
+      icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+
+    // Xử lý Form
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.classList.add('hidden');
+      document.getElementById('success').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
