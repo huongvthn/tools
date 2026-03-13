@@ -652,11 +652,13 @@
 
       fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
         .then(response => {
+          // Thành công: Ẩn form, hiện thông báo
           form.classList.add('hidden');
           document.getElementById('success').classList.remove('hidden');
         })
         .catch(error => {
-          alert('Có lỗi xảy ra, vui lòng thử lại!');
+          // Lỗi này giờ chỉ hiện khi rớt mạng thật sự
+          alert('Có lỗi xảy ra, vui lòng kiểm tra kết nối mạng!');
           btn.innerHTML = originalText;
           btn.disabled = false;
         });
@@ -664,6 +666,7 @@
   </script>
 </body>
 </html>
+
 
 
 
