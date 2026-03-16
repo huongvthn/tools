@@ -167,13 +167,16 @@
       <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-dark text-white text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-lg">Đăng ký & Nhận quà</span>
     </a>
   </nav>
-  <section id="hero" class="gradient-hero min-h-screen relative overflow-hidden flex items-center">
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+  <section id="hero" class="min-h-screen relative overflow-hidden flex items-center bg-cover bg-center" style="background-image: url('hero-bg.jpg');">
+    
+    <div class="absolute inset-0 bg-gradient-to-br from-secondary/90 to-dark/90 z-0"></div>
+
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-10">
       <div class="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full blur-xl float-animation"></div>
       <div class="absolute top-40 right-20 w-32 h-32 bg-accent/20 rounded-full blur-xl float-animation" style="animation-delay: 1s;"></div>
-      <div class="absolute bottom-40 left-1/4 w-24 h-24 bg-primary/15 rounded-full blur-xl float-animation" style="animation-delay: 2s;"></div>
     </div>
-    <div class="container mx-auto px-4 py-12 lg:py-20 relative z-10">
+
+    <div class="container mx-auto px-4 py-12 lg:py-20 relative z-20">
       <div class="flex flex-col lg:flex-row items-center gap-12">
         <div class="flex-1 text-center lg:text-left">
           <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mb-6">
