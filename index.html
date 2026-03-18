@@ -929,13 +929,18 @@ const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     }
   });
 </script>
-     <div class="fixed bottom-5 right-5 z-50 lg:hidden">
+   <div class="fixed bottom-5 right-5 z-50 lg:hidden">
   <a href="https://zalo.me/0333686719"
      target="_blank"
      rel="noopener noreferrer"
      aria-label="Chat Zalo ngay"
-     class="w-14 h-14 rounded-full bg-blue-500 hover:bg-blue-600 text-white shadow-2xl flex items-center justify-center pulse-glow">
-    <i data-lucide="message-circle" class="w-7 h-7"></i>
+     class="relative w-16 h-16 rounded-full bg-white shadow-2xl flex items-center justify-center border border-blue-100 pulse-glow">
+    <span class="absolute inset-0 rounded-full bg-blue-500/10 animate-ping"></span>
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" 
+      alt="Zalo" 
+      class="relative w-9 h-9 object-contain"
+    >
   </a>
 </div>
 </body>
