@@ -599,76 +599,155 @@ ChatGPT Plus, CapCut Pro, Canva, Zoom... chính hãng – ổn định – Nora 
   </section>
 
   <section id="form-section" class="py-16 lg:py-24 gradient-hero">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <div class="bg-white rounded-2xl p-8 shadow-2xl text-center">
+  <div class="container mx-auto px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-stretch">
 
-  <!-- OPTION 1 -->
-  <h2 class="text-2xl font-bold mb-4">
-    🎯 Nhận tư vấn nhanh nhất
-  </h2>
+        <!-- LEFT: OFFER -->
+        <div class="bg-white/10 border border-white/15 backdrop-blur-md rounded-3xl p-8 text-white">
+          <span class="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-sm font-semibold mb-5">
+            <i data-lucide="gift" class="w-4 h-4"></i>
+            Ưu đãi dành cho khách đăng ký hôm nay
+          </span>
 
-  <p class="text-gray-600 mb-6">
-    Chat Zalo để Nora hỗ trợ ngay trong 5–15 phút
-  </p>
+          <h2 class="text-3xl lg:text-4xl font-extrabold leading-tight mb-4">
+            Nhận tư vấn đúng nhu cầu + báo giá nhanh trong 15 phút
+          </h2>
 
-  <a href="https://zalo.me/0333686719" target="_blank"
-  class="block w-full bg-blue-500 hover:bg-blue-600 text-white py-4 rounded-xl font-bold text-lg shadow-lg transition-all">
-    👉 Chat Zalo ngay
-  </a>
+          <p class="text-white/80 text-lg mb-6">
+            Nora sẽ giúp bạn chọn đúng tool, đúng ngân sách, tránh mua dư hoặc mua sai gói.
+          </p>
 
-  <!-- DIVIDER -->
-  <div class="flex items-center my-8">
-    <div class="flex-1 h-px bg-gray-200"></div>
-    <span class="px-4 text-gray-400 text-sm font-semibold">HOẶC</span>
-    <div class="flex-1 h-px bg-gray-200"></div>
-  </div>
+          <div class="space-y-3 mb-8">
+            <div class="flex items-start gap-3">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-accent mt-0.5 flex-shrink-0"></i>
+              <p>Hỗ trợ chọn đúng công cụ: ChatGPT Plus, Canva, CapCut, Zoom...</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-accent mt-0.5 flex-shrink-0"></i>
+              <p>Báo giá rõ ràng, không lòng vòng</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-accent mt-0.5 flex-shrink-0"></i>
+              <p>Tặng bonus Prompt AI khi đăng ký thành công</p>
+            </div>
+          </div>
 
-  <!-- OPTION 2 -->
-  <h3 class="text-lg font-semibold mb-2">
-    Không tiện chat? Nora sẽ chủ động liên hệ
-  </h3>
+          <a href="https://zalo.me/0333686719" target="_blank" rel="noopener noreferrer"
+             class="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-4 rounded-2xl font-bold text-lg shadow-xl transition-all">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            Chat Zalo ngay
+          </a>
 
-  <p class="text-sm text-gray-500 mb-4">
-    Để lại số Zalo + nhu cầu, Nora sẽ nhắn bạn trong 15 phút
-  </p>
+          <p class="text-sm text-white/70 mt-4">
+            Ưu tiên cách này nếu bạn muốn được phản hồi nhanh nhất.
+          </p>
+        </div>
 
-  <form id="contact-form" class="space-y-4">
+        <!-- RIGHT: FORM -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl">
+          <div id="form-wrapper">
+            <div class="text-center mb-6">
+              <h3 class="text-2xl font-extrabold text-dark mb-2">Không tiện chat ngay?</h3>
+              <p class="text-gray-600">
+                Để lại thông tin, Nora sẽ chủ động nhắn Zalo cho bạn sớm nhất.
+              </p>
+            </div>
 
-  <!-- TÊN -->
-  <input type="text" required
-  placeholder="Tên của bạn"
-  class="w-full px-4 py-3 rounded-xl border border-gray-200">
+            <form id="contact-form" class="space-y-4" novalidate>
+              <div>
+                <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Họ và tên</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  autocomplete="name"
+                  placeholder="Ví dụ: Nguyễn Minh Anh"
+                  class="w-full px-4 py-3.5 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                >
+              </div>
 
-  <!-- ZALO -->
-  <input type="tel" required
-  placeholder="Số Zalo"
-  class="w-full px-4 py-3 rounded-xl border border-gray-200">
+              <div>
+                <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Số Zalo / Số điện thoại</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  inputmode="numeric"
+                  autocomplete="tel"
+                  placeholder="Ví dụ: 09xxxxxxxx"
+                  class="w-full px-4 py-3.5 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                >
+              </div>
 
-  <!-- NHU CẦU -->
-  <textarea rows="3"
-  placeholder="Bạn cần tư vấn gì? (ví dụ: mua ChatGPT Plus)"
-  class="w-full px-4 py-3 rounded-xl border border-gray-200 resize-none"></textarea>
+              <div>
+                <label for="product" class="block text-sm font-semibold text-gray-700 mb-2">Bạn đang quan tâm</label>
+                <select
+                  id="product"
+                  name="product"
+                  class="w-full px-4 py-3.5 rounded-2xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                >
+                  <option value="">Chọn sản phẩm bạn cần</option>
+                  <option value="ChatGPT Plus">ChatGPT Plus</option>
+                  <option value="CapCut Pro">CapCut Pro</option>
+                  <option value="Canva Pro">Canva Pro</option>
+                  <option value="Zoom Pro">Zoom Pro</option>
+                  <option value="Gemini Pro">Gemini Pro</option>
+                  <option value="Combo">Combo tiết kiệm</option>
+                  <option value="Khác">Khác</option>
+                </select>
+              </div>
 
-  <button type="submit"
-  class="w-full bg-gray-900 text-white py-3 rounded-xl font-semibold">
-    Gửi thông tin
-  </button>
+              <div>
+                <label for="note" class="block text-sm font-semibold text-gray-700 mb-2">Nhu cầu cụ thể</label>
+                <textarea
+                  id="note"
+                  name="note"
+                  rows="4"
+                  placeholder="Ví dụ: Mình cần ChatGPT Plus dùng ổn định cho công việc content"
+                  class="w-full px-4 py-3.5 rounded-2xl border border-gray-200 resize-none focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                ></textarea>
+              </div>
 
-</form>
+              <button
+                id="submit-btn"
+                type="submit"
+                class="w-full btn-primary text-white py-4 rounded-2xl font-bold text-lg shadow-xl inline-flex items-center justify-center gap-2"
+              >
+                <i data-lucide="send" class="w-5 h-5"></i>
+                Gửi thông tin nhận tư vấn
+              </button>
 
-</div>
+              <p class="text-xs text-gray-500 text-center leading-relaxed">
+                Nora chỉ dùng thông tin này để liên hệ tư vấn, không spam.
+              </p>
+
+              <p id="form-status" class="hidden text-sm text-center font-medium rounded-xl px-4 py-3"></p>
+            </form>
+          </div>
+
           <div id="success-message" class="hidden text-center py-8">
-            <div class="w-20 h-20 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-4"><i data-lucide="check-circle" class="w-10 h-10 text-accent"></i></div>
-            <h3 class="text-2xl font-bold text-dark mb-2">Đăng ký thành công! 🎉</h3>
-            <p class="text-gray-600">Nora sẽ liên hệ bạn qua Zalo trong vài phút tới nhé!</p>
+            <div class="w-20 h-20 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-4">
+              <i data-lucide="check-circle" class="w-10 h-10 text-accent"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-dark mb-2">Gửi thông tin thành công! 🎉</h3>
+            <p class="text-gray-600 mb-6">
+              Nora sẽ liên hệ bạn qua Zalo trong thời gian sớm nhất.
+            </p>
+            <a href="https://zalo.me/0333686719" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-2xl font-bold transition-all">
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+              Muốn nhanh hơn? Chat Zalo ngay
+            </a>
           </div>
         </div>
-        
-        
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <footer class="bg-dark py-8">
     <div class="container mx-auto px-4">
@@ -687,63 +766,110 @@ ChatGPT Plus, CapCut Pro, Canva, Zoom... chính hãng – ổn định – Nora 
     </div>
   </footer>
 
-  <script>
-    // Khởi tạo Icon
-    lucide.createIcons();
+<script>
+  lucide.createIcons();
 
-    // Xử lý đóng/mở FAQ
-    function toggleFaq(button) {
-      const content = button.nextElementSibling;
-      const icon = button.querySelector('[data-lucide="chevron-down"]');
-      
-      content.classList.toggle('hidden');
-      icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+  function toggleFaq(button) {
+    const content = button.nextElementSibling;
+    const icon = button.querySelector('[data-lucide="chevron-down"]');
+
+    content.classList.toggle('hidden');
+    icon.style.transform = content.classList.contains('hidden')
+      ? 'rotate(0deg)'
+      : 'rotate(180deg)';
+  }
+
+  const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const formStatus = document.getElementById('form-status');
+  const formWrapper = document.getElementById('form-wrapper');
+  const successMessage = document.getElementById('success-message');
+
+  function showStatus(message, type = 'error') {
+    formStatus.textContent = message;
+    formStatus.classList.remove('hidden', 'bg-red-50', 'text-red-600', 'bg-green-50', 'text-green-600');
+
+    if (type === 'success') {
+      formStatus.classList.add('bg-green-50', 'text-green-600');
+    } else {
+      formStatus.classList.add('bg-red-50', 'text-red-600');
     }
-function doPost(e) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  }
 
-  const name = e.parameter.name || '';
-  const phone = e.parameter.phone || '';
-  const note = e.parameter.note || '';
-  const time = new Date();
+  function validateVietnamPhone(phone) {
+    const cleanPhone = phone.replace(/\s+/g, '');
+    return /^(0|\+84)(3|5|7|8|9)\d{8}$/.test(cleanPhone);
+  }
 
-  sheet.appendRow([
-    time,
-    name,
-    phone,
-    '',     // sản phẩm để trống
-    note
-  ]);
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-  return ContentService
-    .createTextOutput("success")
-    .setMimeType(ContentService.MimeType.TEXT);
-}
-    const form = document.getElementById('contact-form');
+    const formData = new FormData(form);
+    const name = formData.get('name').trim();
+    const phone = formData.get('phone').trim();
+    const product = formData.get('product').trim();
+    const note = formData.get('note').trim();
 
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
+    if (!name) {
+      showStatus('Vui lòng nhập họ và tên.');
+      return;
+    }
 
-  const inputs = form.querySelectorAll('input, textarea');
+    if (!phone) {
+      showStatus('Vui lòng nhập số Zalo / số điện thoại.');
+      return;
+    }
 
-  const name = inputs[0].value;
-  const phone = inputs[1].value;
-  const note = inputs[2].value;
+    if (!validateVietnamPhone(phone)) {
+      showStatus('Số điện thoại/Zalo chưa đúng định dạng.');
+      return;
+    }
 
-  const data = new URLSearchParams();
-  data.append('name', name);
-  data.append('phone', phone);
-  data.append('note', note);
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `
+      <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+      </svg>
+      Đang gửi...
+    `;
+    formStatus.classList.add('hidden');
 
-  fetch('YOUR_SCRIPT_URL', {
-    method: 'POST',
-    body: data
+    try {
+      const payload = new URLSearchParams();
+      payload.append('name', name);
+      payload.append('phone', phone);
+      payload.append('product', product);
+      payload.append('note', note);
+
+      const response = await fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: payload
+      });
+
+      const result = await response.text();
+
+      if (response.ok && result.toLowerCase().includes('success')) {
+        form.reset();
+        formWrapper.classList.add('hidden');
+        successMessage.classList.remove('hidden');
+      } else {
+        showStatus('Gửi chưa thành công. Vui lòng thử lại sau ít phút.');
+      }
+    } catch (error) {
+      showStatus('Không thể kết nối biểu mẫu. Vui lòng kiểm tra lại Apps Script URL.');
+      console.error(error);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `
+        <i data-lucide="send" class="w-5 h-5"></i>
+        Gửi thông tin nhận tư vấn
+      `;
+      lucide.createIcons();
+    }
   });
-
-  alert('Đã gửi! Nora sẽ liên hệ bạn sớm.');
-
-  form.reset();
-});
   </script>
       <div class="fixed bottom-4 left-4 right-4 z-50 lg:hidden">
   <a href="https://zalo.me/0333686719"
