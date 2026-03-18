@@ -603,65 +603,60 @@ ChatGPT Plus, CapCut Pro, Canva, Zoom... chính hãng – ổn định – Nora 
       <div class="max-w-4xl mx-auto">
         <div class="bg-white rounded-2xl p-8 shadow-2xl text-center">
 
+  <!-- OPTION 1 -->
   <h2 class="text-2xl font-bold mb-4">
-    🎁 Nhận tài khoản ngay + tư vấn 1-1
+    🎯 Nhận tư vấn nhanh nhất
   </h2>
 
   <p class="text-gray-600 mb-6">
-    Chat Zalo để Nora tư vấn nhanh nhất (5–15 phút)
+    Chat Zalo để Nora hỗ trợ ngay trong 5–15 phút
   </p>
 
-  <!-- CTA CHÍNH -->
   <a href="https://zalo.me/0333686719" target="_blank"
-  class="w-full inline-block bg-blue-500 hover:bg-blue-600 text-white py-4 rounded-xl font-bold text-lg shadow-lg transition-all">
+  class="block w-full bg-blue-500 hover:bg-blue-600 text-white py-4 rounded-xl font-bold text-lg shadow-lg transition-all">
     👉 Chat Zalo ngay
   </a>
 
-  <!-- TRUST -->
-  <p class="text-sm text-gray-500 mt-4">
-    ✔ Đã hỗ trợ 500+ khách • ✔ Trả lời trong 15 phút
+  <!-- DIVIDER -->
+  <div class="flex items-center my-8">
+    <div class="flex-1 h-px bg-gray-200"></div>
+    <span class="px-4 text-gray-400 text-sm font-semibold">HOẶC</span>
+    <div class="flex-1 h-px bg-gray-200"></div>
+  </div>
+
+  <!-- OPTION 2 -->
+  <h3 class="text-lg font-semibold mb-2">
+    Không tiện chat? Nora sẽ chủ động liên hệ
+  </h3>
+
+  <p class="text-sm text-gray-500 mb-4">
+    Để lại số Zalo + nhu cầu, Nora sẽ nhắn bạn trong 15 phút
   </p>
 
-  <!-- FORM PHỤ -->
-  <div class="mt-6 border-t pt-6">
-    <p class="text-sm text-gray-500 mb-3">
-      Không tiện chat? Để lại thông tin:
-    </p>
+  <form id="contact-form" class="space-y-4">
 
-<form id="contact-form" class="space-y-4">
+  <!-- TÊN -->
+  <input type="text" required
+  placeholder="Tên của bạn"
+  class="w-full px-4 py-3 rounded-xl border border-gray-200">
 
-  <!-- SĐT -->
-  <div>
-    <label class="block text-sm font-semibold text-gray-700 mb-2">
-      Số Zalo của bạn *
-    </label>
-    <input type="tel" required
-    placeholder="0xxx xxx xxx"
-    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
-  </div>
+  <!-- ZALO -->
+  <input type="tel" required
+  placeholder="Số Zalo"
+  class="w-full px-4 py-3 rounded-xl border border-gray-200">
 
   <!-- NHU CẦU -->
-  <div>
-    <label class="block text-sm font-semibold text-gray-700 mb-2">
-      Bạn cần tư vấn gì?
-    </label>
-    <textarea rows="3"
-    placeholder="Ví dụ: Mình cần ChatGPT Plus để làm content TikTok..."
-    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none resize-none"></textarea>
-  </div>
+  <textarea rows="3"
+  placeholder="Bạn cần tư vấn gì? (ví dụ: mua ChatGPT Plus)"
+  class="w-full px-4 py-3 rounded-xl border border-gray-200 resize-none"></textarea>
 
-  <!-- CTA -->
   <button type="submit"
-  class="w-full btn-primary py-4 rounded-xl text-white font-bold text-lg shadow-xl">
-    👉 Gửi thông tin & nhận tư vấn
+  class="w-full bg-gray-900 text-white py-3 rounded-xl font-semibold">
+    Gửi thông tin
   </button>
 
-  <!-- TRUST -->
-  <p class="text-center text-sm text-gray-500">
-    ⚡ Nora sẽ liên hệ trong 5–15 phút qua Zalo
-  </p>
-
 </form>
+
 </div>
           <div id="success-message" class="hidden text-center py-8">
             <div class="w-20 h-20 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-4"><i data-lucide="check-circle" class="w-10 h-10 text-accent"></i></div>
@@ -704,34 +699,50 @@ ChatGPT Plus, CapCut Pro, Canva, Zoom... chính hãng – ổn định – Nora 
       content.classList.toggle('hidden');
       icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
     }
-const form = document.getElementById('contact-form');
+function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+
+  const name = e.parameter.name || '';
+  const phone = e.parameter.phone || '';
+  const note = e.parameter.note || '';
+  const time = new Date();
+
+  sheet.appendRow([
+    time,
+    name,
+    phone,
+    '',     // sản phẩm để trống
+    note
+  ]);
+
+  return ContentService
+    .createTextOutput("success")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+    const form = document.getElementById('contact-form');
 
 form.addEventListener('submit', function(e) {
   e.preventDefault();
 
   const inputs = form.querySelectorAll('input, textarea');
-  const phone = inputs[0].value;
-  const note = inputs[1].value;
 
-  // ===== 1. GỬI GOOGLE SHEET =====
+  const name = inputs[0].value;
+  const phone = inputs[1].value;
+  const note = inputs[2].value;
+
   const data = new URLSearchParams();
+  data.append('name', name);
   data.append('phone', phone);
   data.append('note', note);
 
-  fetch('https://script.google.com/macros/s/AKfycbxjQAflC_3G-BlFx29LjvVqf02bnzIUnd45sRD3xWwktUJD-o5F0o8qS5KgUavXKBjY/exec', {
+  fetch('YOUR_SCRIPT_URL', {
     method: 'POST',
-    body: data,
-    mode: 'no-cors'
+    body: data
   });
 
-  // ===== 2. MỞ ZALO =====
-  const zaloText = encodeURIComponent(
-    `Chào Nora, mình vừa đăng ký trên landing page.\nSĐT: ${phone}\nNhu cầu: ${note}`
-  );
+  alert('Đã gửi! Nora sẽ liên hệ bạn sớm.');
 
-  const zaloLink = `https://zalo.me/0333686719?text=${zaloText}`;
-
-  window.location.href = zaloLink;
+  form.reset();
 });
   </script>
       <div class="fixed bottom-4 left-4 right-4 z-50 lg:hidden">
