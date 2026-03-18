@@ -763,7 +763,20 @@ ChatGPT Plus, CapCut Pro, Canva, Zoom... chính hãng – ổn định – Nora 
       </div>
     </div>
   </footer>
+
 <script>
+  lucide.createIcons();
+
+  function toggleFaq(button) {
+    const content = button.nextElementSibling;
+    const icon = button.querySelector('[data-lucide="chevron-down"]');
+
+    content.classList.toggle('hidden');
+    icon.style.transform = content.classList.contains('hidden')
+      ? 'rotate(0deg)'
+      : 'rotate(180deg)';
+  }
+
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxjQAflC_3G-BlFx29LjvVqf02bnzIUnd45sRD3xWwktUJD-o5F0o8qS5KgUavXKBjY/exec';
 
   const form = document.getElementById('contact-form');
@@ -774,7 +787,11 @@ ChatGPT Plus, CapCut Pro, Canva, Zoom... chính hãng – ổn định – Nora 
 
   function showStatus(message, type = 'error') {
     formStatus.textContent = message;
-    formStatus.classList.remove('hidden', 'bg-red-50', 'text-red-600', 'bg-green-50', 'text-green-600');
+    formStatus.classList.remove(
+      'hidden',
+      'bg-red-50', 'text-red-600',
+      'bg-green-50', 'text-green-600'
+    );
 
     if (type === 'success') {
       formStatus.classList.add('bg-green-50', 'text-green-600');
@@ -796,12 +813,23 @@ ChatGPT Plus, CapCut Pro, Canva, Zoom... chính hãng – ổn định – Nora 
     const product = document.getElementById('product').value.trim();
     const note = document.getElementById('note').value.trim();
 
-    if (!name) return showStatus('Vui lòng nhập họ và tên.');
-    if (!zalo) return showStatus('Vui lòng nhập số Zalo.');
-    if (!validateVietnamPhone(zalo)) return showStatus('Số Zalo chưa đúng định dạng.');
+    if (!name) {
+      showStatus('Vui lòng nhập họ và tên.');
+      return;
+    }
+
+    if (!zalo) {
+      showStatus('Vui lòng nhập số Zalo.');
+      return;
+    }
+
+    if (!validateVietnamPhone(zalo)) {
+      showStatus('Số Zalo chưa đúng định dạng.');
+      return;
+    }
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Đang gửi...';
+    submitBtn.innerHTML = 'Đang gửi...';
     formStatus.classList.add('hidden');
 
     try {
@@ -813,36 +841,27 @@ ChatGPT Plus, CapCut Pro, Canva, Zoom... chính hãng – ổn định – Nora 
 
       const response = await fetch(SCRIPT_URL, {
         method: 'POST',
-        mode: 'cors',
         body: payload
       });
 
-      const text = await response.text();
-      console.log('Response text:', text);
-
-      let result = {};
-      try {
-        result = JSON.parse(text);
-      } catch (err) {
-        console.error('JSON parse error:', err);
-      }
+      const result = await response.json();
 
       if (result.result === 'success') {
         form.reset();
         formWrapper.classList.add('hidden');
         successMessage.classList.remove('hidden');
       } else {
-        showStatus('Đã gửi dữ liệu nhưng không đọc được phản hồi thành công.');
+        showStatus('Gửi chưa thành công: ' + (result.error || 'Lỗi không xác định'));
       }
     } catch (error) {
+      showStatus('Không kết nối được tới form. Kiểm tra lại link Apps Script.');
       console.error(error);
-      showStatus('Không kết nối được tới Apps Script.');
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Gửi thông tin nhận tư vấn';
+      submitBtn.innerHTML = 'Gửi thông tin nhận tư vấn';
     }
   });
-</script>
+  </script>
       <div class="fixed bottom-4 left-4 right-4 z-50 lg:hidden">
   <a href="https://zalo.me/0333686719"
   class="block bg-blue-500 text-white text-center py-4 rounded-xl font-bold shadow-2xl">
